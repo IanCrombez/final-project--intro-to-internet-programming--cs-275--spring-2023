@@ -1,0 +1,24 @@
+{
+  "name": "final-project--intro-to-internet-programming--cs-275--spring-2023",
+  "version": "1.0.0",
+  "description": "final project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Crombez",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "gulp-htmlmin": "^5.0.1"
+  }
+}
