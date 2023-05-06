@@ -86,7 +86,7 @@ let serve = () => {
 };
 
 let compileCSSForDev = () => {
-    return src(`dev/styles/scss/main.scss`)
+    return src(`dev/css/main.scss`)
         .pipe(sass.sync({
             outputStyle: `expanded`,
             precision: 10
@@ -98,7 +98,7 @@ let copyUnprocessedAssetsForDev = () => {
         `img*/*.jpg`,       // Source all jpg images,
         `img*/*.svg`,       // and all svg images,
         `json*/*.json`,     // and all .json,
-        `styles*/*.css`,    // and all .css,
+        `dev/css*/*.css`,    // and all .css,
         `dev/html/index.html`        // and index.html
     ], {dot: true})
         .pipe(dest(`temp`));
