@@ -1,4 +1,4 @@
-const printMatrix = () => {
+let printMatrix = () => {
     let size = parseInt(document.getElementById(`matrix-size`).value);
     if (isNaN(size) || size <= 0) {
         alert(`Please enter a positive integer.`);
@@ -6,23 +6,23 @@ const printMatrix = () => {
     }
 
     let matrix = [];
-    for (let i = 0; i < size; i++) {
-        matrix[i] = [];
-        for (let j = 0; j < size; j++) {
-            matrix[i][j] = i * size + j + 1;
+    for (let rowM = 0; rowM < size; rowM++) {
+        matrix[rowM] = [];
+        for (let colM = 0; colM < size; colM++) {
+            matrix[rowM][colM] = rowM * size + colM + 1;
         }
     }
 
     let table = document.createElement(`table`);
     table.id = `matrix-table`;
-    for (let i = 0; i < size; i++) {
+    for (let rowM = 0; rowM < size; rowM++) {
         let row = document.createElement(`tr`);
-        for (let j = 0; j < size; j++) {
+        for (let colM = 0; colM < size; colM++) {
             let cell = document.createElement(`td`);
-            if (i + j === size - 1) {
+            if (rowM + colM === size - 1) {
                 cell.style.backgroundColor = `yellow`;
             }
-            cell.innerText = matrix[i][j];
+            cell.innerText = matrix[rowM][colM];
             row.appendChild(cell);
         }
         table.appendChild(row);
@@ -32,24 +32,24 @@ const printMatrix = () => {
     container.appendChild(table);
 
     // Reverse the matrix along the diagonal from bottom left to top right
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size-i; j++) {
-            let temp = matrix[i][j];
-            matrix[i][j] = matrix[size - 1 - i][size - 1 - j];
-            matrix[size - 1 - i][size - 1 - j] = temp;
+    for (let rowM = 0; rowM < size; rowM++) {
+        for (let colM = 0; colM < size-rowM; colM++) {
+            let temp = matrix[rowM][colM];
+            matrix[rowM][colM] = matrix[size - 1 - rowM][size - 1 - colM];
+            matrix[size - 1 - rowM][size - 1 - colM] = temp;
         }
     }
 
     let reversedTable = document.createElement(`table`);
     reversedTable.style.margin = `20px auto`;
-    for (let i = 0; i < size; i++) {
+    for (let rowM = 0; rowM < size; rowM++) {
         let row = document.createElement(`tr`);
-        for (let j = 0; j < size; j++) {
+        for (let colM = 0; colM < size; colM++) {
             let cell = document.createElement(`td`);
-            if (i + j === size - 1) {
+            if (rowM + colM === size - 1) {
                 cell.style.backgroundColor = `yellow`;
             }
-            cell.innerText = matrix[i][j];
+            cell.innerText = matrix[rowM][colM];
             row.appendChild(cell);
         }
         reversedTable.appendChild(row);
